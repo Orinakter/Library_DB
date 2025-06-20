@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import { BookInterfaces } from "../interfaces/books.interfaces";
 
 const bookSchema = new Schema<BookInterfaces>({
@@ -43,4 +43,7 @@ const bookSchema = new Schema<BookInterfaces>({
     timestamps:true,
 }
 );
+
+
+export const Book = model("Book",bookSchema)
 
