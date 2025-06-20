@@ -19,3 +19,17 @@ bookRouter.post("/", async (req: Request, res: Response) => {
       .json({ success: false, message: "Validation failed", error });
   }
 });
+
+bookRouter.get('/',async(req: Request, res: Response)=>{
+    try {
+    const { filter, sortBy = 'createdAt', sort = 'desc', limit = '10' } = req.query;
+    const query = filter ? { genre: filter } : {};
+    const books = await Book.find(query)
+      .sort({ [sortBy as string]: sort === 'asc' ? 1 : -1 })
+      .limit(parseInt(limit as string));
+
+    res.json({ success: true, message: 'Books retrieved successfully', data: books });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Failed to get books', error });
+  }
+})
