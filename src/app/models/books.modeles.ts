@@ -44,6 +44,11 @@ const bookSchema = new Schema<BookInterfaces>({
 }
 );
 
+bookSchema.methods.checkedAvailability = function () {
+  this.available = this.copies > 0;
+  return this.save();
+};
+
 
 export const Book = model("Book",bookSchema)
 

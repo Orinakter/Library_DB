@@ -6,4 +6,5 @@ export interface BookInterfaces{
    description?:string,
    copies:number,
    available:boolean,
+   checkedAvailability():Promise<this>
 }
