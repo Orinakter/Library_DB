@@ -63,6 +63,8 @@ bookRouter.get("/:bookId", async (req: Request, res: Response) => {
       .json({ success: false, message: "Failed to get book", error });
   }
 });
+ 
+// update books by id 
 
 bookRouter.patch("/:bookId", async (req: Request, res: Response) => {
   try {
@@ -83,3 +85,16 @@ bookRouter.patch("/:bookId", async (req: Request, res: Response) => {
       .json({ success: false, message: "Failed to update book", error });
   }
 });
+
+
+// deleted books by id 
+
+bookRouter.delete("/:bookId", async (req: Request, res: Response) =>{
+    try {
+    await Book.findByIdAndDelete(req.params.bookId);
+    res.json({ success: true, message: 'Book deleted successfully', data: null });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Failed to delete book', error });
+  }
+})
+
