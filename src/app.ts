@@ -3,6 +3,8 @@ import { bookRouter } from './app/controller/books.controller';
 import { borrowRouter } from './app/controller/borrow.controller';
 const app:Application = express();
 
+// use middleware and routes
+
 app.use(express.json())
 app.use("/api/books",bookRouter)
 app.use("/api/borrow",borrowRouter)

@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
 import BookInterfaces from "../interfaces/books.interfaces";
 
+//  Create Book Schema
 
 const bookSchema = new Schema<BookInterfaces>({
   title: {
@@ -44,12 +45,15 @@ const bookSchema = new Schema<BookInterfaces>({
     timestamps:true,
 }
 );
+ 
+// Create checkedAvailability instances method
 
 bookSchema.methods.checkedAvailability = function () {
   this.available = this.copies > 0;
   return this.save();
 };
 
+//  Create and Export Book Modeles
 
  const Book = model("Book",bookSchema)
  export default Book;

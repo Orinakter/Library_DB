@@ -3,6 +3,8 @@ import Borrow from "../models/borrow.modeles";
 import Book from "../models/books.modeles";
 export const borrowRouter = express.Router();
 
+// Route to borrow a book and update book copies
+
 borrowRouter.post("/", async (req: Request, res: Response) => {
   try {
     const body = req.body;
@@ -33,6 +35,8 @@ borrowRouter.post("/", async (req: Request, res: Response) => {
       .json({ success: false, message: "Validation failed", error });
   }
 });
+
+// // Route to get summary of borrowed books with total quantities
 
 borrowRouter.get("/", async (req: Request, res: Response) => {
   try {

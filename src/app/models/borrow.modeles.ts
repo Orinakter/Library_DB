@@ -1,6 +1,8 @@
 import { model, Schema } from "mongoose";
 import { BorrowInterfaces } from "../interfaces/borrow.interface";
 
+// //  Create Borrow Schema
+
 const borrowSchema = new Schema<BorrowInterfaces>({
     book:{
         type:Schema.Types.ObjectId,
@@ -20,6 +22,8 @@ const borrowSchema = new Schema<BorrowInterfaces>({
     versionKey:false,
     timestamps:true,
 })
+
+// Created and Export Borrow Modeles
 
 const Borrow = model("Borrow",borrowSchema)
 

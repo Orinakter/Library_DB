@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 const port = 5000;
 let server: Server;
 
+//  Created async function thats connect mongodb
+
 const connectServer = async () => {
   try {
     await mongoose.connect(
