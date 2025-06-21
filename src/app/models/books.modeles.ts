@@ -1,5 +1,6 @@
 import { model, Schema } from "mongoose";
-import { BookInterfaces } from "../interfaces/books.interfaces";
+import BookInterfaces from "../interfaces/books.interfaces";
+
 
 const bookSchema = new Schema<BookInterfaces>({
   title: {
@@ -50,5 +51,6 @@ bookSchema.methods.checkedAvailability = function () {
 };
 
 
-export const Book = model("Book",bookSchema)
+ const Book = model("Book",bookSchema)
+ export default Book;
 

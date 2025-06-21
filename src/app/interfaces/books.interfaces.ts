@@ -1,4 +1,4 @@
-export interface BookInterfaces{
+interface BookInterfaces{
     title:string,
    author: string,
    genre:"FICTION" | "NON_FICTION" | "SCIENCE" | "HISTORY" | "BIOGRAPHY" | "FANTASY",
@@ -8,3 +8,5 @@ export interface BookInterfaces{
    available:boolean,
    checkedAvailability():Promise<this>
 }
+
+export default BookInterfaces;
